@@ -1,0 +1,1 @@
+s("bd*4).lpf(saw.range(100, 10000).slow(2))
