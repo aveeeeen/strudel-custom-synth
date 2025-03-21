@@ -1,0 +1,22 @@
+{
+  "name": "strudel-custom-synth",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^6.2.0"
+  },
+  "dependencies": {
+    "@strudel/mini": "^1.1.0",
+    "@strudel/tonal": "^1.1.0",
+    "@strudel/transpiler": "^1.1.0",
+    "@strudel/webaudio": "^1.1.0",
+    "monaco-editor": "^0.52.2",
+    "tone": "^15.0.4"
+  }
+}
