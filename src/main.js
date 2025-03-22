@@ -12,7 +12,9 @@ import { useKick } from './synthPreset/kick.js';
 
 document.querySelector('#app').innerHTML = `
   <p>A custom editor for strudel where you can use pre-defined synth with integration of Tone.js as a synth source!!<p>
+  <p>Open your devtools to see the console out put from strudel</p>
   <p>To evaluate code press eval or Ctrl + Enter</p>
+  <p>Have fun!!</p>
   <div class="bar">
     <button id="eval"> eval </button>
     <button id="trydemo"> try demo! </button> 
