@@ -53,6 +53,4 @@ export class StrudelWrapper {
   getAudioContext(){
     return this.ctx
   }
-
-  
 }

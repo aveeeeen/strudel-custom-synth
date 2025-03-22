@@ -5,7 +5,7 @@ import * as Tone from 'tone'
 
 //
 // import your own synth preset bellow
-// declare your synth preset at 'src/synthpreset/'
+// define your synth preset at 'src/synthpreset/'
 //
 
 import { useKick } from './synthPreset/kick.js';
