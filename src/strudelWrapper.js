@@ -7,7 +7,8 @@ export class StrudelWrapper {
 
   constructor(){
     initAudioOnFirstClick();
-    this.ctx = getAudioContext();
+    this.ctx = getAudioContext()
+
     this.strudelrepl = repl({
       defaultOutput: webaudioOutput,
       getTime: () => this.ctx.currentTime,
