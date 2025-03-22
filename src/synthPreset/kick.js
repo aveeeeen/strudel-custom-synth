@@ -1,6 +1,6 @@
 import * as Tone from 'tone'
 import { createParams, getFreq } from '@strudel/core'
-import { registerSound, getAudioContext, gainNode } from '@strudel/webaudio'
+import { registerSound, getAudioContext } from '@strudel/webaudio'
 
 
 export const useKick = () => {
@@ -28,7 +28,7 @@ export const useKick = () => {
       sustain: 0,
       release: 0.1,
     },
-    frequency: 50, // Base frequency for the kick
+    frequency: 50, 
   })
 
   // Let the gain node from OG Web Audio API as the destination source of your audio chain
@@ -36,8 +36,8 @@ export const useKick = () => {
   const endOfNode = new GainNode(getAudioContext(), {gain: 1})
   kick.connect(endOfNode)
 
-  //create parameters so that the strudel repl can interpret. These parameters (control patterns/parameters) will be passed as hap values to the sound registered in strudel.
-  //some control parameters are pre-defined so becareful
+  // Create parameters so that the strudel repl can interpret. These parameters (control patterns/parameters) will be passed as hap values to the sound registered in strudel.
+  // Some control parameters are pre-defined so becareful
   createParams('harm', 'modu')
 
   registerSound(
@@ -54,7 +54,7 @@ export const useKick = () => {
 
       const freq = note ? getFreq(note) : "f2"
 
-      // map parameter values
+      // Map parameter values
       if (decay) {
         kick.set(
           {
@@ -81,16 +81,16 @@ export const useKick = () => {
         })
       }
 
-      // sound triggering
+      // Sound triggering
 
       kick.triggerAttack(freq, time)
       kick.triggerRelease(time + duration)
 
-      // this is a callback which is emmited when the sound stops
+      // This is a callback which is emmited when the sound stops
       const stop = (time) => {
-        // disconnect only the end of node (endOfNode) 
-        // the official strudel doc gives you an example where you disconnect all sources but if you do this with Tone.js Audio Node, you'll get no sound 
-        // since all audio node instances are defined outside this registerSound() callback, it is safe to do so
+        // Disconnect only the end of node (endOfNode) 
+        // The official strudel doc gives you an example where you disconnect all sources but if you do this with Tone.js Audio Node, you'll get no sound 
+        // Since all audio node instances are defined outside this registerSound() callback, it is safe to do so. (if the audio node is defined inside the callback, you will hear multiple instances of the audio node resulting a crash of the browser)
         endOfNode.disconnect()
         onended()
       }
