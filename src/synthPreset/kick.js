@@ -50,41 +50,12 @@ export const useKick = () => {
   hpfEnv.connect(hpfScale)
   hpfScale.connect(hpf.frequency)
 
-  pitchEnv.set({
-    octaves: 4,
-    attack: 0.01,
-    decay: 0.1,
-    sustain: 0,
-    release: 0.1
-  })
-
-  lpfEnv.set({
-    attack: 0.01,
-    decay: 0.3,
-    sustain: 0.5,
-    release: 0.1,
-  })
-
-  lpfScale.set({
-    min: 50,
-    max: 15000,
-  })
-
-  hpfEnv.set({
-      attack: 0.01,
-      decay: 0.1,
-      sustain: 0,
-      release: 0.1
-  })
-
-  hpfScale.set({
-    min: 20,
-    max: 3000,
-  })
+  
   // Let the gain node from OG Web Audio API as the destination source of your audio chain
   // This way of connection is the only way where you can apply all the strudel's effect chain in combination with Tone.js
   const endOfNode = new GainNode(getAudioContext(), {gain: 1})
   pitchEnv.connect(kick.oscillator.frequency)
+  pitchEnv.connect(kick.modulation.frequency)
   kick.connect(hpf)
   hpf.connect(lpf)
   lpf.connect(endOfNode)
