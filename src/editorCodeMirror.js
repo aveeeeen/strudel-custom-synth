@@ -10,6 +10,10 @@ export class Editor {
   constructor(editorEl) {
 
     this.evalKeymap = new Compartment()
+
+    const editorViewUpdate = EditorView.updateListener.of(update => {
+      if(update) localStorage.setItem('pre-edit', this.getValue())
+    })
     
     this.editor = new EditorView({
       doc: this.loadContent(),
@@ -21,6 +25,7 @@ export class Editor {
         keymap.of([
           indentWithTab,
         ]),
+        editorViewUpdate,
         this.evalKeymap.of(
           Prec.highest(
             keymap.of({
