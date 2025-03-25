@@ -112,9 +112,7 @@ export const useKick = () => {
         hpfScale.dispose()
       },
       // define setter function for applying control parameters
-      fmSet(obj){
-        kick.set(obj)
-      },
+      kick,
     }
   }
 
@@ -142,31 +140,19 @@ export const useKick = () => {
 
       // Map parameter values
       if(harm) {
-        sound.fmSet({
-          harmonicity: harm
-        })
+        sound.kick.harmonicity.value = harm
       }
 
       if(modIndex) {
-        sound.fmSet({
-          modulationIndex: modIndex
-        })
+        sound.kick.modulationIndex.value = modIndex
       }
 
       if(modDecay) {
-        sound.fmSet({
-          modulationEnvelope: {
-            decay: modDecay
-          }
-        })
+        sound.kick.modulationEnvelope.decay = modDecay
       }
 
       if(decay) {
-        sound.fmSet({
-          envelope: {
-            decay: decay
-          }
-        })
+        sound.kick.envelope.decay = decay
       }
       const timeEnd = time + duration
 

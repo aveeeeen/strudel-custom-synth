@@ -1,6 +1,6 @@
-import {EditorState, Compartment, Prec} from "@codemirror/state"
-import {EditorView, keymap} from "@codemirror/view"
-import {javascript} from "@codemirror/lang-javascript"
+import { Compartment, Prec } from "@codemirror/state"
+import { EditorView, keymap } from "@codemirror/view"
+import { javascript } from "@codemirror/lang-javascript"
 import { indentWithTab } from "@codemirror/commands"
 import { basicSetup } from "codemirror"
 import { vscodeDark } from '@uiw/codemirror-theme-vscode';
