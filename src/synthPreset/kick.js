@@ -4,7 +4,7 @@ import { registerSound, getAudioContext, webAudioTimeout } from '@strudel/webaud
 
 
 export const useKick = () => {
-
+  console.log("kick sound loaded")
   const soundWrapper = () => {
     // Your sound made with Tone.js here
     const kick = new Tone.FMSynth({
